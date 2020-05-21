@@ -2,4 +2,4 @@
 venv
 
 # Python precompiled files
-src/blog/__pycache__
+*.pyc
