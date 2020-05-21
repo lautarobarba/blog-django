@@ -1,0 +1,5 @@
+# Virtual Enviroment
+venv
+
+# Python precompiled files
+src/blog/__pycache__
