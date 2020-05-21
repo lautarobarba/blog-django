@@ -30,7 +30,7 @@ For Arch Linux:
     $ sudo systemctl enable postgresql
 ```
 
-### Change user postgres's password
+### Change postgres user's password
 ```bash
     $ sudo passwd postgres
 ```
@@ -63,7 +63,7 @@ For Arch Linux:
 ```
 
 ### Export data as Environment Variables
-Add inside .xinitrc ir .xprofile
+Add inside .xinitrc or .xprofile
 ```bash
     export DJANGO_DBNAME=blog_database
     export DJANGO_DBUSER=blog_user
