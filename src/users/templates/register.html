@@ -1,15 +1,18 @@
 {% extends 'posts/base.html' %}
+{% load crispy_forms_tags %}
+
 {% block title %}
 Blog - Registro
 {% endblock %}
 
 {% block content %}
-<h1>Registro</h1>
+    <div class="container">
+        <h1>Registro</h1>
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Send message">
-</form>
-
+        <form method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <input type="submit" value="Registrarse" class="btn btn-primary">
+        </form>
+    </div>
 {% endblock %}

@@ -1,22 +1,18 @@
 {% extends 'posts/base.html' %}
 {% block title %}
-Blog - Home
+    My Granito de Arena
 {% endblock %}
 
 {% block content %}
-<h1>Página de inicio</h1>
-</br>
-
-{% if user.is_authenticated %}
-    <h2>Estas logueado con el usuario {{ user.email }}</h2>
-    </br>
-    <a href="{% url 'logout' %}">Salir</a>
-{% else %}
-    <h2>Todavía no estas logueado.</h2>
-    </br>
-    <a href="{% url 'register' %}">Registrarse</a>
-    </br>
-    <a href="{% url 'login' %}">Iniciar sesión</a>
-{% endif %}
-
+    <div class="container">
+        <h1 class="text-center">Últimos Posts</h1>
+        </br>
+        {% for post in object_list %}
+            <h1><a href="#">{{ post.title }}</a></h1>
+            <h2>Autor: <a href="#">{{ post.author }}</a></h2>
+            <h3>Creado: {{ post.created }}</h3>
+            <h3>Última edición: {{ post.last_modified }}</h3>
+            <p>{{ post.content }}</p>
+        {% endfor %}
+    </div>
 {% endblock %}

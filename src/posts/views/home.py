@@ -1,7 +1,11 @@
-from django.views.generic.base import TemplateView
+from django.views.generic import ListView
+from posts.models import Post
 
-class HomeView(TemplateView):
+class HomeView(ListView):
+
     template_name = 'posts/home.html'
+    model = Post
+    paginate_by = 5
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

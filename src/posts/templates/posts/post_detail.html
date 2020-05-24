@@ -1,0 +1,15 @@
+{% extends 'posts/base.html' %}
+
+{% block title %}
+Blog - {{ object.title }}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>{{ object.title }}</h1>
+        <h2>Autor: <a href="#">{{ object.author }}</a></h2>
+        <h3>Creado: {{ object.created }}</h3>
+        <h3>Ultima edición: {{ object.last_modified }}</h3>
+        <p>{{ object.content }}</p>
+    </div>
+{% endblock %}
