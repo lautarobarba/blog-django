@@ -5,7 +5,18 @@ Blog - Home
 
 {% block content %}
 <h1>Página de inicio</h1>
-<a href="#">Registrarse</a>
 </br>
-<a href="#">Iniciar sesión</a>
+
+{% if user.is_authenticated %}
+    <h2>Estas logueado con el usuario {{ user.email }}</h2>
+    </br>
+    <a href="{% url 'logout' %}">Salir</a>
+{% else %}
+    <h2>Todavía no estas logueado.</h2>
+    </br>
+    <a href="{% url 'register' %}">Registrarse</a>
+    </br>
+    <a href="{% url 'login' %}">Iniciar sesión</a>
+{% endif %}
+
 {% endblock %}

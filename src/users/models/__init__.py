@@ -1,1 +1,1 @@
-from .user import Visitor
+from .user import User

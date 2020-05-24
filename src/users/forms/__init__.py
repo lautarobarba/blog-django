@@ -1,1 +1,1 @@
-from .user import VisitorForm
+from .user import UserCreationForm
