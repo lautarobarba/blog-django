@@ -1,0 +1,8 @@
+.navbar-brand {
+    font-family: 'Chelsea Market', cursive;
+}
+
+.text-justify {
+    text-align: justify;
+    text-justify: inter-word;
+}

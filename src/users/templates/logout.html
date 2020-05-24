@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'posts/base.html' %}
 {% block title %}
     Blog - Logout
 {% endblock %}
@@ -6,5 +6,5 @@
 {% block content %}
     <h1>Sesión cerrada</h1>
     </br>
-    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'home' %}">Inicio</a>
 {% endblock %}
