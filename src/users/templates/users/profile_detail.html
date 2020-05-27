@@ -1,18 +1,22 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Blog - {{ object.user }}
+Blog - {{ object }}
 {% endblock %}
 
 {% block content %}
     <div class="container">
-        <h1>Cuenta: {{ object.user.email }}</h1>
+        <h1>Cuenta: {{ object }}</h1>
         <h3>Nombre: {{ object.first_name }}</h3>
         <h3>Apellido: {{ object.last_name }}</h3>
         <h3>País: {{ object.country }}</h3>
         <h3>Teléfono: {{ object.phone }}</h3>
-        <h3>Foto: {{ object.picture }}</h3>
-
+        {% if object.picture %}
+            <h3>Foto:</h3>
+            <img src="{{ object.picture.url }}" alt="{{ object.picture.url }}">
+        {% else %}
+            <h3>Foto: sin foto de perfil</h3>
+        {% endif %}
         </br>
         </br>
         <a href="{% url 'profile-update' object.pk %}">Modificar perfil</a>

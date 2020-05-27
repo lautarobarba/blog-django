@@ -3,3 +3,6 @@ venv
 
 # Python precompiled files
 *.pyc
+
+# Users profile pictures
+src/media/users
