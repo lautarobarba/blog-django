@@ -1,3 +1,2 @@
-from .register import UserCreateView
-from .login import UserLoginView
-from .logout import UserLogoutView
+from .user import UserCreateView, UserLoginView, UserLogoutView
+from .profile import ProfileDetailView

@@ -1,6 +1,6 @@
-{% extends 'posts/base.html' %}
+{% extends 'base.html' %}
 {% block title %}
-    My Granito de Arena
+    Mi Granito de Arena
 {% endblock %}
 
 {% block content %}
@@ -8,7 +8,7 @@
         <h1 class="text-center">Últimos Posts</h1>
         </br>
         {% for post in object_list %}
-            <h1><a href="#">{{ post.title }}</a></h1>
+            <h1><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h1>
             <h2>Autor: <a href="#">{{ post.author }}</a></h2>
             <h3>Creado: {{ post.created }}</h3>
             <h3>Última edición: {{ post.last_modified }}</h3>

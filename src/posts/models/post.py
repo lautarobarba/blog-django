@@ -15,4 +15,4 @@ class Post(models.Model):
         return f'{self.title} de {self.author.name}'
 
     def get_absolute_url(self):
-        return reverse(f'post/{self.pk}')
+        return f'post/{self.pk}'
