@@ -1,2 +1,2 @@
-from .user import UserCreateView, UserLoginView, UserLogoutView
-from .profile import ProfileDetailView
+from .user import UserCreateView, UserLoginView, UserLogoutView, UserDeleteView
+from .profile import ProfileDetailView, ProfileUpdateView

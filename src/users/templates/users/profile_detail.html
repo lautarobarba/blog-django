@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Blog - {{ object.title }}
+Blog - {{ object.user }}
 {% endblock %}
 
 {% block content %}
@@ -12,5 +12,11 @@ Blog - {{ object.title }}
         <h3>País: {{ object.country }}</h3>
         <h3>Teléfono: {{ object.phone }}</h3>
         <h3>Foto: {{ object.picture }}</h3>
+
+        </br>
+        </br>
+        <a href="{% url 'profile-update' object.pk %}">Modificar perfil</a>
+        </br>
+        <a href="{% url 'user-delete' object.pk %}">Eliminar cuenta</a>
     </div>
 {% endblock %}

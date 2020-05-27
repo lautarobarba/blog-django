@@ -132,5 +132,10 @@ STATIC_URL = '/static/'
     #os.path.join(BASE_DIR, 'static')
 #)
 
+
+# Media files
+MEDIA_URL = '/media/'
+
+
 # Crispy template pack
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

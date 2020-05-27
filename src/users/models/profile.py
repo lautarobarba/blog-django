@@ -18,7 +18,7 @@ class Profile(models.Model):
     last_name = models.CharField(max_length=255, null=True, blank=True)
     country = models.CharField(max_length=2, null=True, choices=COUNTRIES, default='AR')
     phone = models.CharField(max_length=12, null=True, blank=True)
-    picture = models.ImageField()
+    picture = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         if self.first_name and self.last_name:

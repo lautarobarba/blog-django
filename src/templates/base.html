@@ -31,7 +31,7 @@
             
             {% if user.is_authenticated %}
                 <a class="nav-link" href="#">Mis Aportes</a>
-                <a class="nav-link d-none d-xl-block" href="#">{{ user.email }}</a>
+                <a class="nav-link d-none d-xl-block" href="{{ user.get_absolute_url }}">{{ user.email }}</a>
                 <a class="nav-link d-none d-lg-block" href="{% url 'user-logout' %}">Salir</a>
             {% else %}
                 <a class="nav-link" href="{% url 'user-login' %}">Iniciar sesión</a>
