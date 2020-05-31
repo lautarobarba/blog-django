@@ -11,13 +11,16 @@ class GroupContextMixin(ContextMixin, View):
         if request.user.id:
             # User group
             self.user_group = request.user.profile.group.name
+            self.user_id = request.user.id
         else:
             self.user_group = 'anonymous'
+            self.user_id = 0
         return super().get(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['user_group'] = self.user_group
+        context['user_id'] = self.user_id
         return context
 
 class ProfileOwnerMixin(GroupContextMixin):

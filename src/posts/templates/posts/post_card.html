@@ -1,0 +1,19 @@
+<h1><a href="{% url 'post-detail' object.id %}">{{ object.title }}</a></h1>
+<!-- Author can be None. Warning! -->
+{% if object.author %}
+    <h2>Autor: <a href="{% url 'profile-detail' object.author.profile.id %}">{{ object.author.profile }}</a></h2>
+{% else %}
+    <h2>Autor: None</h2>
+{% endif %}
+<h4>Creado: {{ object.created }}</h4>
+<h4>Ultima edición: {{ object.last_modified }}</h4>
+<p>{{ object.content }}</p>
+</br>
+{% if user_group == 'admin' or can_edit or user_id == object.author.id %}
+    <a href="{% url 'home' %}" class="btn btn-primary">Inicio</a>
+    <a href="{% url 'post-delete' object.id %}" class="btn btn-danger float-right">Eliminar</a>
+    <a href="{% url 'post-update' object.id %}" class="btn btn-primary float-right mx-2">Editar</a>
+{% else %}
+    <a href="{% url 'home' %}" class="btn btn-primary">Inicio</a>
+{% endif %}
+<hr>

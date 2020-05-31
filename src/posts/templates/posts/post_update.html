@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Blog - {{ object }}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Editar Post</h1>
+        {% if user_group == 'admin' or can_edit or user_id == object.author.id %}
+            <form method="post">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <a class="btn btn-danger" href="{% url 'post-detail' object.id %}">Cancelar</a>
+                <input type="submit" value="Editar Post" class="btn btn-primary">
+            </form>
+        {% else %}
+            <h2>Necesitas ser administrador o autor para editar este post</h2>
+            <a class="btn btn-primary" href="{% url 'post-detail' object.id %}">Volver</a>
+        {% endif %}
+    </div>
+{% endblock %}

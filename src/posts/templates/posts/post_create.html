@@ -1,4 +1,4 @@
-{% extends 'posts/base.html' %}
+{% extends 'base.html' %}
 {% load crispy_forms_tags %}
 
 {% block title %}
@@ -12,6 +12,7 @@ Blog - Nuevo Post
         <form method="post">
             {% csrf_token %}
             {{ form|crispy }}
+            <a class="btn btn-danger" href="{% url 'home' %}">Cancelar</a>
             <input type="submit" value="Crear Post" class="btn btn-primary">
         </form>
     </div>

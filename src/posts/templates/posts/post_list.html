@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}
+    Mi Granito de Arena
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="text-center">Últimos Posts</h1>
+        </br>
+        {% for object in object_list %}
+            {% include 'posts/post_card.html' %}
+        {% endfor %}
+    </div>
+{% endblock %}
