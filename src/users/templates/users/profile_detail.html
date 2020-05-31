@@ -1,26 +1,41 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Blog - {{ object }}
+    {{ object }}
 {% endblock %}
 
 {% block content %}
     <div class="container">
         <h1>Cuenta: {{ object }}</h1>
+
+        {% if object.picture %}
+            <img src="{{ object.picture.url }}" class="img-thumbnail rounded float-right" alt="{{ object.picture.url }}">
+        {% endif %}
+        
         <h3>Nombre: {{ object.first_name }}</h3>
         <h3>Apellido: {{ object.last_name }}</h3>
-        <h3>País: {{ object.country }}</h3>
-        <h3>Teléfono: {{ object.phone }}</h3>
-        {% if object.picture %}
-            <h3>Foto:</h3>
-            <img src="{{ object.picture.url }}" alt="{{ object.picture.url }}">
-        {% else %}
-            <h3>Foto: sin foto de perfil</h3>
+        {% if user_role == 'admin' %}
+            <h3>País: {{ object.country }}<a href="{% url 'country-new' %}" class="badge mx-2">Agregar país</a></h3>
+        {% else  %}
+            <h3>País: {{ object.country }}</h3>
         {% endif %}
+        <h3>Teléfono: {{ object.phone }}</h3>
         </br>
         </br>
-        <a href="{% url 'profile-update' object.pk %}">Modificar perfil</a>
+        <h1>Roles</h1>
+        <h3>
+            {% if user_role == 'admin' %}
+                Es Adminstrador
+            {% elif user_role == 'client'  %}
+                Es Cliente
+            {% endif %}
+        </h3>
         </br>
-        <a href="{% url 'user-delete' object.pk %}">Eliminar cuenta</a>
+        </br>
+        {% if can_edit %}
+            <a href="{% url 'profile-update' object.pk %}">Modificar perfil</a>
+            </br>
+            <a href="{% url 'user-delete' object.user.pk %}">Eliminar cuenta</a>
+        {% endif %}
     </div>
 {% endblock %}

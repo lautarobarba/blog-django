@@ -109,6 +109,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/3.0/topics/auth/customizing/#substituting-a-custom-user-model
 AUTH_USER_MODEL = 'users.User'
 
+# Login url used by LoginRequired mixin
+LOGIN_URL = '/user/login/'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
@@ -138,6 +140,11 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # MEDIA_URL is the URL we can use in our templates for the files
 MEDIA_URL = '/media/'
+# In order to use MEDIA_URL you should add this to your ulr.py main file
+#from django.conf import settings
+#from django.conf.urls.static import static
+#if settings.DEBUG:
+#   urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 # Crispy template pack
