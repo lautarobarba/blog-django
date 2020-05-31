@@ -6,12 +6,14 @@
 
 {% block content %}
     <div class="container">
-        <h1>Cuenta: {{ object }}</h1>
-
         {% if object.picture %}
-            <img src="{{ object.picture.url }}" class="img-thumbnail rounded float-right" alt="{{ object.picture.url }}">
-        {% endif %}
-        
+            <div class="row ">
+                <img src="{{ object.picture.url }}" class="profile-image my-3" alt="{{ object.picture.url }}">
+                <h1 class="d-block my-auto mx-4">{{ object }}</h1>
+            </div>
+        {% else %}
+            <h1>Cuenta: {{ object }}</h1>
+        {% endif %}  
         <h3>Nombre: {{ object.first_name }}</h3>
         <h3>Apellido: {{ object.last_name }}</h3>
         {% if user_role == 'admin' %}
@@ -24,9 +26,9 @@
         </br>
         <h1>Roles</h1>
         <h3>
-            {% if user_role == 'admin' %}
+            {% if object.admin %}
                 Es Adminstrador
-            {% elif user_role == 'client'  %}
+            {% else%}
                 Es Cliente
             {% endif %}
         </h3>
