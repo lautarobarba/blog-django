@@ -36,3 +36,15 @@ class UserDeleteView(DeleteView):
     model = User
     template_name = 'users/user_delete.html'
     success_url = reverse_lazy('home')
+
+    def get(self, request, *args, **kwargs):
+        # User can edit only his own profile
+        logged_user_profile = request.user.profile.pk
+        current_profile = self.kwargs['pk']
+        self.can_edit = logged_user_profile == current_profile
+        return super().get(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['can_edit'] = self.can_edit
+        return context
