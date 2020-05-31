@@ -16,9 +16,6 @@ class Profile(models.Model):
     phone = models.CharField(verbose_name='teléfono', max_length=12, null=True, blank=True)
     picture = models.ImageField(verbose_name='foto de perfil', upload_to='users/', null=True, blank=True)
     
-    # Roles QUITAR ESTO!!!!
-    admin = models.BooleanField(default=False)
-
     # Role
     group = models.ForeignKey(Group, verbose_name='grupo', null=True, blank=True, on_delete=models.SET_NULL)
 

@@ -8,7 +8,7 @@
 {% block content %}
     <div class="container">
         <h1>Agregar País</h1>
-        {% if user_role == 'admin' %}
+        {% if user_group == 'admin' %}
             <form method="post">
                 {% csrf_token %}
                 {{ form|crispy }}

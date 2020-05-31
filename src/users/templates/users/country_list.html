@@ -12,7 +12,7 @@
             {% for pais in object_list %}
                 <li class="list-group-item">
                     <div class="float-left">{{ pais.name }}</div>
-                    {% if user_role == 'admin' %}
+                    {% if user_group == 'admin' %}
                         <div>
                             <a class="mx-3 float-right" href="{% url 'country-delete' pais.id %}">Eliminar</a>
                             <a class="mx-3 float-right" href="{% url 'country-update' pais.id %}">Modificar</a>
@@ -21,7 +21,7 @@
                 </li>
             {% endfor %}
         </ul>
-        {% if user_role == 'admin' %}
+        {% if user_group == 'admin' %}
         <div class="text-center my-3">
             <a class="btn btn-primary" href="{% url 'country-new' %}">Agregar país</a>
         </div>
