@@ -21,6 +21,9 @@ For Arch Linux:
     $ sudo pacman -S postgresql
     $ postgres --version
     postgres (PostgreSQL) 12.3
+    $ sudo -iu postgres
+    [postgres]$ initdb -D /var/lib/postgres/data
+    [postgres]$ exit
 ```
 
 ### Enable and Start the service
