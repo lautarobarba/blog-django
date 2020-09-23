@@ -56,6 +56,7 @@ For Arch Linux:
     postgres=# \c blog_database blog_user
     blog_database=# \conninfo
     blog_database=# \q
+    [postgres]$ exit
 ```
 
 ### PostgreSQL is ready to work with this data
@@ -72,6 +73,7 @@ Add inside .xinitrc or .xprofile
     export DJANGO_DBUSER=blog_user
     export DJANGO_DBPASSWORD=****** (use real password)
 ```
+Now you have to reloguin Xsession or restart the computer.
 
 ### Notes
 Check database data with DBeaver or pgAdmin4
